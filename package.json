@@ -1,0 +1,58 @@
+{
+  "name": "yong-webgl2-water",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Tethys 水体的 WebGL2 实现：三级谱级联 FFT、Rusanov 浅水求解器与 clipmap 水面，附带一个原生 TypeScript 演示页。",
+  "license": "MIT",
+  "author": "Yong Li <ly05010419@gmail.com>",
+  "contributors": [
+    "James Addison"
+  ],
+  "keywords": [
+    "webgl2",
+    "ocean",
+    "water",
+    "fft",
+    "glsl",
+    "simulation"
+  ],
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "THIRD_PARTY_NOTICES.md"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run build:demo && npm run build:lib",
+    "build:demo": "vite build",
+    "build:lib": "tsup src/index.ts --format esm --dts --clean --target es2022 --platform browser --treeshake --tsconfig tsconfig.lib.json",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "check": "npm run lint && npm run typecheck && npm run test && npm run build",
+    "screenshots": "npm run build:demo && node scripts/capture-screenshots.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^20",
+    "@types/pngjs": "^6.0.5",
+    "eslint": "^9",
+    "pixelmatch": "^7.2.0",
+    "pngjs": "^7.0.0",
+    "tsup": "^8.5.0",
+    "typescript": "^5",
+    "typescript-eslint": "^8",
+    "vite": "^7",
+    "vitest": "^4.1.10"
+  }
+}

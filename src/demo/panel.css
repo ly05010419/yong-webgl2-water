@@ -1,0 +1,167 @@
+/* Demo page styling. The palette, spacing and type scale are the source
+   renderer's lab panel verbatim — only the class names lost their CSS-module
+   hashing, so the rendered pixels are unchanged. */
+
+:root {
+  color-scheme: dark;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #0c3c45;
+  color: #eff8ef;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; overflow: hidden; }
+button, input { font: inherit; }
+button { color: inherit; }
+
+.shell {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: #4a8991;
+}
+
+.underwaterShell { background: #093f4b; }
+
+.canvas {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  cursor: grab;
+  touch-action: none;
+}
+
+.canvas:active { cursor: grabbing; }
+
+.panel {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: min(390px, calc(100vw - 36px));
+  max-height: calc(100vh - 36px);
+  overflow: auto;
+  padding: 20px;
+  border: 1px solid rgba(213, 240, 225, 0.25);
+  border-radius: 20px;
+  background: rgba(8, 42, 48, 0.82);
+  box-shadow: 0 18px 60px rgba(3, 22, 27, 0.32);
+  backdrop-filter: blur(18px) saturate(1.2);
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  color: #a6d6c3;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.panel h1 {
+  margin: 0;
+  color: #f3f4d8;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 31px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+.intro, .hint, .controls, .adapter {
+  color: rgba(226, 243, 229, 0.72);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.intro { margin: 8px 0 16px; }
+.hint { margin: 7px 2px 0; }
+.adapter { margin: 12px 0 0; overflow-wrap: anywhere; }
+.controls { margin: 4px 0 0; color: rgba(226, 243, 229, 0.52); }
+
+.panel section {
+  padding: 13px 0;
+  border-top: 1px solid rgba(213, 240, 225, 0.12);
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  color: rgba(240, 248, 229, 0.86);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.segmented, .profilePresets {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.profilePresets { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+.panel button {
+  min-height: 34px;
+  padding: 7px 9px;
+  border: 1px solid rgba(210, 238, 223, 0.16);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.055);
+  color: rgba(238, 247, 232, 0.76);
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.panel button:hover { background: rgba(255, 255, 255, 0.10); }
+.panel button.active {
+  border-color: rgba(176, 230, 199, 0.48) !important;
+  background: rgba(90, 164, 137, 0.36) !important;
+  color: #f6f4d8 !important;
+}
+
+.sliders { display: grid; gap: 12px; }
+.sliders label { display: grid; gap: 6px; }
+.sliders label > span {
+  display: flex;
+  justify-content: space-between;
+  color: rgba(236, 246, 230, 0.74);
+  font-size: 11px;
+}
+.sliders output { color: #d5eab6; font-variant-numeric: tabular-nums; }
+.sliders input { width: 100%; accent-color: #8fc79f; }
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin: 14px 0 0;
+  overflow: hidden;
+  border: 1px solid rgba(213, 240, 225, 0.12);
+  border-radius: 12px;
+  background: rgba(213, 240, 225, 0.12);
+}
+
+.metrics div { padding: 8px 9px; background: rgba(5, 31, 37, 0.76); }
+.metrics dt { color: rgba(219, 237, 222, 0.48); font-size: 9px; letter-spacing: 0.06em; text-transform: uppercase; }
+.metrics dd { margin: 2px 0 0; color: #edf3db; font-size: 11px; font-variant-numeric: tabular-nums; }
+
+.status {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 30px;
+  background: #164f58;
+  color: #eff3d4;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+
+.statusBody { display: grid; justify-items: center; gap: 16px; }
+.statusText { margin: 0; max-width: 52ch; line-height: 1.6; }
+
+@media (max-width: 760px) {
+  .panel { top: 10px; right: 10px; width: min(350px, calc(100vw - 20px)); max-height: calc(100vh - 20px); padding: 16px; }
+  .panel h1 { font-size: 26px; }
+  .profilePresets { grid-template-columns: 1fr; }
+}

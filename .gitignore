@@ -1,0 +1,18 @@
+node_modules/
+dist/
+dist-demo/
+.vite/
+coverage/
+.DS_Store
+*.log
+.env
+.env.*
+!.env.example
+
+# Scratch output of the capture / comparison scripts.
+/tmp/
+test-results/
+playwright-report/
+
+# TypeScript incremental build cache
+*.tsbuildinfo
