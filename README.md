@@ -5,7 +5,7 @@ Vite + 原生 TypeScript 写的演示页。
 
 本项目从 [`inkwell-webgpu-water`](https://github.com/ly05010419/inkwell-webgpu-water)
 （commit `7dbf39c` / `7331e81`）中抽取而来，**只保留 WebGL2 渲染路径**：不含
-WebGPU 引擎、不含 Three.js WebGPU 适配层、不含船体渲染与浮力变换、不含 glTF 加载器。
+WebGPU 引擎、不含 Three.js WebGPU 适配层。
 引擎的数学、GLSL 与每帧执行顺序一行未改，因此在相同参数下与源项目 `/webgl2` 页面
 **逐像素零差异**（见〈像素对齐验证〉）。
 
