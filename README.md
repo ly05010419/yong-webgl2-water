@@ -9,6 +9,10 @@ WebGPU 引擎、不含 Three.js WebGPU 适配层。
 引擎的数学、GLSL 与每帧执行顺序一行未改，因此在相同参数下与源项目 `/webgl2` 页面
 **逐像素零差异**（见〈像素对齐验证〉）。
 
+**在线演示：** <https://yong-webgl2-water.vercel.app/> （Vercel 部署，需支持 WebGL2 的浏览器）
+
+![开阔水域场景：三级谱级联 FFT 远海浪 + Cox-Munk 着色](docs/images/open-water.jpg)
+
 ---
 
 ## 它渲染什么
@@ -208,7 +212,7 @@ src/demo/                 演示页：main.ts、panel.ts、panel-model.ts、brid
                           labels.ts、dom.ts、panel.css
 tests/                    23 个 vitest 文件
 scripts/                  Playwright：像素对比、交互回归、文档截图
-docs/                     移植规格、经验教训、进度与测试说明
+docs/                     移植规格、经验教训、进度、测试说明与 README 截图
 ```
 
 `src/lib/webgl2/index.ts` 是给外部与测试用的桶文件；**内部禁止**从它导入
